@@ -4,18 +4,19 @@ This section describes the procedure (setup and steps) taken to create an expert
 
 ## Setup
  
-- Limit searching only the Scopus database since Scopus provides easy downloads of a paper's references and cited by details.
+- Limit search to the Scopus database since Scopus provides easy downloads of a paper's references and cited by details.
 - Include only papers from Journals with a top Scopus source scores (more than 1.0).
 - Assume papers from source with high source score are credible, and that papers referenced in credible paper are credible. However a paper that cites a credible referenced paper is not necessarily credible, therefore filter these paper by source score as well.
 - Limit all papers from years 2014-2019.
 - Keyword search in scopus `key("digital transformation" or "digital innovation" or "digitization" or "digitilization")` (call this search `keywords`).
+- Assume a paper is a `core` paper to the topic if it is either referenced by three or more papers in the database, or if it cites four or more papers in the database and has a top source score.
 
 ## Steps
 
 Initialize our expertise `database` to the empty set.
 
 1. Search Scopus with `keywords`, limit years `2014-2019`.
-2. Sort resulting papers by relevance using Scopus and download the first 200 papers (see `source` directory).
+2. Sort resulting papers by relevance using Scopus and download the first 200 papers (see `source` directory for the first 200 relevant papers).
 3. Limit the 200 papers to those with top source scores (call this `seed_papers`). See `data` directory for source scores downloaded from Scopus. 
 4. For each paper in `seed_papers`, grab the reference paper details through Scopus (call this `reference_papers`). See the `database\reference\` directory. 
 5. If a paper `rp` in `reference_papers` is referenced by more than 2 `seed_papers`, add `rp` to the `database`.
