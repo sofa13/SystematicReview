@@ -18,27 +18,20 @@ fromyear = 2014
 toyear = 2019
  
 def papersNotInDatabase(paper_ids, folder='./database'):
-	# get papers id
-
-	#print("# papers to save:", len(paper_ids))
+	print("# papers to save:", len(paper_ids))
 	
 	# compare to paper ids already saved
 	file_ids = set([file.split('.csv')[0] for file in os.listdir(folder)])
-	#print("# papers already saved:", len(file_ids))
+	print("# papers already saved:", len(file_ids))
 	
 	papers_left = paper_ids.difference(file_ids)
-	#print("# papers left to save:", len(papers_left))
-	#print()
+	print("# papers left to save:", len(papers_left))
 	
 	return papers_left
 
 def getSeedPapers():
 	# read search file
 	seeds = ['./source/digitaltrans_2014-2019_keywords_200rel(2).csv', './source/digitaltrans_2014-2019_keywords_201-400rel(2).csv', './source/digitaltrans_2014-2019_keywords_401-600rel(2).csv']
-	#seeds = ['./source/digitaltrans_2014-2019_keywords_200rel(2).csv', './source/digitaltrans_2014-2019_keywords_201-400rel(2).csv']
-	#seeds = ['./source/digitaltrans_2014-2019_keywords_200rel(2).csv']
-	
-	#seeds = ['./source/gerontology_assistech_2014-2019_keywords_200rel.csv']
 	
 	li = []
 	for filename in seeds:
@@ -63,7 +56,6 @@ def getSeedPapers():
 	df = pd.concat(li, axis=0, ignore_index=True)
 	
 	df = df.loc[df['Source title'].isin(paper_source_score)]
-	print(df.shape)
 	
 	paper_ids = set([row.EID for index, row in df.iterrows()])
 	
@@ -93,38 +85,39 @@ def getTopSourceTitles(search_titles):
 			
 	paper_source_score = sorted(paper_source_score, reverse=True)
 	
-	print("# titles:", len(search_titles))
-	print("# titles with source scores:", len(paper_source_score))
+	print("# seed source titles:", len(search_titles))
+	print("# seed source titles with scores:", len(paper_source_score))
 	#pprint(paper_source_score)
 	
 	# reduce sources with the highest scores
 	paper_source_score = set([x[1] for x in paper_source_score if x[0]>=citescore])
 	#pprint(paper_source_score)
-	print("# sources with top scores:", len(paper_source_score))
+	print("# seed source titles with top scores:", len(paper_source_score))
 	
 	return paper_source_score
 	
-def printReport(db, db_ref, db_cb):
+def printReport(db, db_ref, db_cb, cnt):
 	
 	db_true_ref = [[key, val] for key, val in db.items() if (len(val["ref_src"])) >= thld_ref]
 	
 	db_true_cb = [[key, val] for key, val in db.items() if (len(val["cb_src"])) >= thld_cb]
 	
+	print("Round %s" % (cnt))
 	print("# papers in db:", len(db))
-	print("# papers in db true ref:", len(db_true_ref))
-	print("# papers in db true cb:", len(db_true_cb))
-	print("# papers not in db_ref:", len(db_ref))
-	print("# papers not in db_cb:", len(db_cb))
+	print("# papers in db found through refs:", len(db_true_ref))
+	print("# papers in db found through cite bys:", len(db_true_cb))
+	print("# papers referened to add to db:", len(db_ref))
+	print("# papers cite by to add to db:", len(db_cb))
 	print()
 	
 def printReportToCSV(db):
-	#pprint(db)
+	headers = ["# cited by in db", "# ref in db", "Authors", "Author(s) ID", "Title", "Year", "Source title", "Volume", "Issue", "Art. No.", "Page start", "Page end", "Page count", "Cited by", "DOI", "Link", "ids that cite paper", "ids that paper refs"]
 	report_list = [[len(val['ref_src'])] + [len(val['cb_src'])] + val['info'][:14] + [val['ref_src']] + [val['cb_src']] for key, val in db.items()]
 	
 	report_list.sort(key=lambda x: x[1], reverse=True)
 	report_list.sort(key=lambda x: x[0], reverse=True)
 	
-	#pprint(report_list)
+	report_list = [headers] + report_list
 	
 	with open('./database/db.csv', 'w', newline='') as myfile:
 		wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
@@ -134,12 +127,14 @@ def printReportToCSV(db):
 def getPapersInDatabase():
 	
 	db, paper_source_score = getSeedPapers()
-	print("# db:", len(db))
+	print("# final seed papers (with top source scores):", len(db))
 	
 	len_db_prev = 0
 	db_ref = set()
 	db_cb = set()
+	cnt = 0
 	while(True):
+		cnt += 1
 		db, ref = getPapersMostReferenced(db)
 				
 		db, cb = getPapersMostCitedby(db, paper_source_score)
@@ -147,7 +142,7 @@ def getPapersInDatabase():
 		db_ref = db_ref.union(ref)
 		db_cb = db_cb.union(cb)
 		
-		printReport(db, db_ref, db_cb)
+		printReport(db, db_ref, db_cb, cnt)
 		
 		#if len(db) == 155:
 		#	break
@@ -257,7 +252,3 @@ def getPapersMostReferenced(db, folder='./database/reference'):
 if __name__ == '__main__':
 	
 	getPapersInDatabase()
-	#papersNotInDatabase()
-	#getPapersMostReferenced()
-	#pprint(res)
-	#print("# papers:", len(res))
