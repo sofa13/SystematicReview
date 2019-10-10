@@ -2,6 +2,7 @@ import pandas as pd
 import os
 from pprint import pprint
 import csv
+import sys
 
 '''
 get search results whos sources have the highest citescore
@@ -29,9 +30,13 @@ def papersNotInDatabase(paper_ids, folder='./database'):
 	
 	return papers_left
 
-def getSeedPapers():
+def getSeedPapers(fin):
 	# read search file
-	seeds = ['./source/digitaltrans_2014-2019_keywords_200rel(2).csv', './source/digitaltrans_2014-2019_keywords_201-400rel(2).csv', './source/digitaltrans_2014-2019_keywords_401-600rel(2).csv']
+	#seeds = ['./source/digitaltrans_2014-2019_keywords_200rel(2).csv', './source/digitaltrans_2014-2019_keywords_201-400rel(2).csv', './source/digitaltrans_2014-2019_keywords_401-600rel(2).csv']
+	if fin is None:
+		seeds = ['./source/digitaltrans_2014-2019_keywords_200rel(2).csv']
+	else:
+		seeds = [fin]
 	
 	li = []
 	for filename in seeds:
@@ -106,7 +111,7 @@ def printReport(db, db_ref, db_cb, cnt):
 	print("# papers in db:", len(db))
 	print("# papers in db found through refs:", len(db_true_ref))
 	print("# papers in db found through cite bys:", len(db_true_cb))
-	print("# papers referened to add to db:", len(db_ref))
+	print("# papers referenced to add to db:", len(db_ref))
 	print("# papers cite by to add to db:", len(db_cb))
 	print()
 	
@@ -124,9 +129,9 @@ def printReportToCSV(db):
 		for ls in report_list:
 			wr.writerow(ls)
 	
-def getPapersInDatabase():
+def getPapersInDatabase(fin=None):
 	
-	db, paper_source_score = getSeedPapers()
+	db, paper_source_score = getSeedPapers(fin)
 	print("# final seed papers (with top source scores):", len(db))
 	
 	len_db_prev = 0
@@ -251,4 +256,9 @@ def getPapersMostReferenced(db, folder='./database/reference'):
 	
 if __name__ == '__main__':
 	
-	getPapersInDatabase()
+	if len(sys.argv) != 2:
+		raise Exception("Usage: python main.py .\source\digitaltrans_2014-2019_keywords_200rel(2).csv")
+
+	fin = sys.argv[1]
+	
+	getPapersInDatabase(fin)
