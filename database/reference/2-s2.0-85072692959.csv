@@ -1,0 +1,31 @@
+﻿Authors,Author(s) ID,Title,Year,Source title,Volume,Issue,Art. No.,Page start,Page end,Page count,Cited by,DOI,EID
+[No author name available],[No author id available],[No title available],2008,"Evaluation of Measurement Data-Guide to the Expression of Uncertainty in Measurement",,,,"","",,2481,,2-s2.0-67650890638
+"Basil M., Papadopoulos C., Sutherland D., Yeung H.","","Application of probabilistic uncertainty methods (Monte-Carlo Simulation) in flow measurement uncertainty estimation",2001,"Proc. Of Flow Measurement 2001 Int. Conf.",,,,"","",,1,,2-s2.0-85072715599
+"Committee For Guides In Metrology J.","",[No title available],2008,"JCGM 101, Evaluation of Measurement Data-Supplement 1 to the Guide to the Expression of Uncertainty in Measurement-Propagation of Distributions Using A Monte Carlo Method",,,,"","",,18,,2-s2.0-79551483866
+"Willink R.","55998689100;","What can we learn from the GUM of 1995?",2016,"Measurement: Journal of the International Measurement Confederation","91",,,"692","698",,6,"10.1016/j.measurement.2016.02.020",2-s2.0-84959864413
+"Casella G., Berger R.L.","",[No title available],1990,"Statistical Inference",,,,"","",,4829,,2-s2.0-0003594381
+"Dieck R.H.","",[No title available],1992,"Measurement Uncertainty: Methods and Applications",,,,"","",,184,,2-s2.0-0003930897
+"Coleman H.W., Steele W.G.","7102220658;7101970340;","Experimentation, Validation, and Uncertainty Analysis for Engineers: Third Edition",2009,"Experimentation, Validation, and Uncertainty Analysis for Engineers: Third Edition",,,,"1","317",,574,"10.1002/9780470485682",2-s2.0-84890261268
+"Vardeman S.B., Lee C.-S.","6701334360;26663480100;","Likelihood-based statistical estimation from quantized data",2005,"IEEE Transactions on Instrumentation and Measurement","54","1",,"409","414",,29,"10.1109/TIM.2004.838912",2-s2.0-13244277663
+"Willink R.","55998689100;","On the validity of methods of uncertainty evaluation",2010,"Metrologia","47","1",,"80","89",,12,"10.1088/0026-1394/47/1/009",2-s2.0-74849094685
+"Huang H.","7405610390;","Uncertainty estimation with a small number of measurements, part I: New insights on the t-interval method and its limitations",2018,"Measurement Science and Technology","29","1", 015004,"","",,4,"10.1088/1361-6501/aa96c7",2-s2.0-85039169116
+"Morey R.D., Hoekstra R., Rouder J.N., Lee M.D., Wagenmakers E.-J.","8934245000;8638732500;7004186708;26643345500;6602132134;","The fallacy of placing confidence in confidence intervals",2016,"Psychonomic Bulletin and Review","23","1",,"103","123",,139,"10.3758/s13423-015-0947-8",2-s2.0-84957850560
+"Mana G., Palmisano C.","7003452065;6603309646;","Interval estimations in metrology",2014,"Metrologia","51","3",,"191","196",,4,"10.1088/0026-1394/51/3/191",2-s2.0-84901652432
+"Morris C.","","Uncertainty Propagation via Monte Carlo Simulation in the PWT and VKF Wind Tunnels at AEDC",2018,"Facility Users Meeting, National Partnership for Aeronautical Testing",,,,"","",,2,,2-s2.0-85051706878
+"Hubbard E.","","Facility Measurement Uncertainty Analysis at NASA GRC",2018,"Facility Users Meeting, National Partnership for Aeronautical Testing",,,,"","",,2,,2-s2.0-85051699575
+"Semmelmayer F.C., Reeder M.F., Seymour R.","36626170100;7007099735;57197639749;","Statistical characteristics of the influence of an electronically scanned pressure transducer on measurement error and uncertainty",2018,"2018 Aerodynamic Measurement Technology and Ground Testing Conference",,, AIAA 2018-4111,"","",29,1,"10.2514/6.2018-4111",2-s2.0-85051693775
+"Semmelmayer F., Reeder M., Seymour R.","","Statistical modeling of electronically scanned pressure transducer noise uncertainty probability density functions",2019,"AIAA Scitech 2019 Forum",,,,"","",,1,,2-s2.0-85072711530
+"Systems P., Inc","",[No title available],2000,"System 8400 User Manual",,,,"","",,1,,2-s2.0-85072691728
+"Specialties M.","",[No title available],2000,"Scanner Digitizer Interface: 8400 SDI",,,,"","",,1,,2-s2.0-85072711953
+"Specialities M.","",[No title available],2000,"Miniature Electronic Pressure Scanners: ESP-16HD/32HD/64HD",,,,"","",,2,,2-s2.0-85051717850
+[No author name available],[No author id available],[No title available],2018,"R: A language and environment for statistical computing.",,,,"","",,1461,,2-s2.0-85044837648
+"Meyer D., Dimitriadou E., Hornik K., Weingessel A., Leisch F.","","e1071: Misc Functions of the Department of Statistics, Probability Theory Group (Formerly: E1071), TU Wien",2015,"E1071: Misc Functions of the Department of Statistics, Probability Theory Group (Formerly: E1071), TU Wien",,,,"6","7",,306,,2-s2.0-84940412877
+"Poncet P.","",[No title available],2018,"Modeest: Mode Estimation",,,,"","",,1,,2-s2.0-85072698519
+"Burnham K.P., Anderson D.R.","",[No title available],1998,"Model Selection and Inference: A Practical Information-Theoretic Approach",,,,"","",,32838,,2-s2.0-0003576417
+"Gentle J.E.","","Computational Statistics",2009,"Computational Statistics",,,,"","",,105,,2-s2.0-0347347108
+"Becker M., Klößner S.","",[No title available],2016,"PearsonDS: Pearson distribution system",,,,"","",,4,,2-s2.0-85061418108
+"Azzalini A.","",[No title available],2018,"The R Package 'Sn': The Skew-Normal and Related Distributions Such As the Skew-t (Version 1.5-3)",,,,"","",,1,,2-s2.0-85072713048
+"Wheeler B.","",[No title available],0000,"SuppDists: supplementary distributions. R package version 1.1-8",,,,"","",,3,,2-s2.0-84901344460
+"Azzalini A.","",[No title available],2018,"The Skew-Normal Probability Distribution",,,,"","",,1,,2-s2.0-85072697123
+"Huang H.","7405610390;","Uncertainty estimation with a small number of measurements, part II: A redefinition of uncertainty and an estimator method",2018,"Measurement Science and Technology","29","1", 015005,"","",,6,"10.1088/1361-6501/aa96d8",2-s2.0-85039157646
+"Jeffreys H.","24799702800;","Some Tests of Significance, Treated by the Theory of Probability",1935,"Mathematical Proceedings of the Cambridge Philosophical Society","31","2",,"203","222",,173,"10.1017/S030500410001330X",2-s2.0-33846432342
